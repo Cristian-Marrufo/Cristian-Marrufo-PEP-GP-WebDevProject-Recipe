@@ -63,9 +63,9 @@ async function processRegistration() {
     // Example placeholder:
     // const registerBody = { username, email, password };
     const registerBody = {
-        username: usernameVal, 
-        email: emailVal, 
-        password: passwordVal
+        usernameVal, 
+        emailVal, 
+        passwordVal
     };
 
     const requestOptions = {
@@ -86,11 +86,8 @@ async function processRegistration() {
     try {
         const response = await fetch(`${BASE_URL}/register`, requestOptions);
 
-        if(response.ok) {
-            //const result = await response.json();
-            //window.location.replace(`${BASE_URL}/login`);
-        }
-        else if(response.status === 201) {
+        if(response.status === 201) {
+            //const result = response.json();
             //window.location.replace(`${BASE_URL}/login`);
         } else if(response.status === 409) {
             alert('User/Email already exists');
