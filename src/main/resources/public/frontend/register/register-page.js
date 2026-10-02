@@ -81,7 +81,7 @@ async function processRegistration() {
 
         if(response.status === 201) {
             //const result = response.json();
-            window.location.href('src/main/resources/public/frontend/login/login-page.html');
+            //window.location.href('src/main/resources/public/frontend/login/login-page.html');
         } else if(response.status === 409) {
             alert('User/Email already exists');
         } else {
