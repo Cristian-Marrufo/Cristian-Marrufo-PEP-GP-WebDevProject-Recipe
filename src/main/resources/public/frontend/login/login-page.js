@@ -46,21 +46,16 @@ loginButton.addEventListener('click', processLogin);
 async function processLogin() {
     // TODO: Retrieve username and password from input fields
     // - Trim input and validate that neither is empty
+    const username = usernameInput.value.trim();
+    const password = passwordInput.value.trim();
 
     // TODO: Create a requestBody object with username and password
 
     const requestOptions = {
         method: "POST",
-        mode: "cors",
-        cache: "no-cache",
-        credentials: "same-origin",
         headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Headers": "*"
+            "Content-Type": "application/json"
         },
-        redirect: "follow",
-        referrerPolicy: "no-referrer",
         body: JSON.stringify(requestBody)
     };
 
