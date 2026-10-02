@@ -73,12 +73,8 @@ async function processRegistration() {
         cache: "no-cache",
         credentials: "same-origin",
         headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Headers": "*"
+            "Content-Type": "application/json"
         },
-        redirect: "follow",
-        referrerPolicy: "no-referrer",
         body: JSON.stringify(registerBody)
     };
     // await fetch(...)
@@ -87,8 +83,8 @@ async function processRegistration() {
         const response = await fetch(`${BASE_URL}/register`, requestOptions);
 
         if(response.status === 201) {
-            //const result = response.json();
-            //window.location.replace(`${BASE_URL}/login`);
+            const result = response.json();
+            window.location.replace(`login-page.html`);
         } else if(response.status === 409) {
             alert('User/Email already exists');
         } else {
