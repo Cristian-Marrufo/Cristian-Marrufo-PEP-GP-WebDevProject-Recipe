@@ -82,6 +82,7 @@ async function processRegistration() {
         body: JSON.stringify(registerBody)
     };
     // await fetch(...)
+    
     try {
         const response = await fetch(`${BASE_URL}/register`, requestOptions);
 
