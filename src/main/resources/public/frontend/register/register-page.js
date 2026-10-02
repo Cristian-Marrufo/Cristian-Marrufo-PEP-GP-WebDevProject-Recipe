@@ -88,6 +88,7 @@ async function processRegistration() {
 
         if(response.ok) {
             //const result = await response.json();
+            //window.location.replace(`${BASE_URL}/login`);
         }
         else if(response.status === 201) {
             //window.location.replace(`${BASE_URL}/login`);
