@@ -86,8 +86,10 @@ async function processRegistration() {
     try {
         const response = await fetch(`${BASE_URL}/register`, requestOptions);
 
-        if(response.status === 201) {
-            //const result = await response.json();
+        if(response.ok) {
+            const result = await response.json();
+        }
+        else if(response.status === 201) {
             //window.location.replace(`${BASE_URL}/login`);
         } else if(response.status === 409) {
             alert('User/Email already exists');
