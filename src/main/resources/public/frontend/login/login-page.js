@@ -50,6 +50,10 @@ async function processLogin() {
     const password = passwordInput.value.trim();
 
     // TODO: Create a requestBody object with username and password
+    const requestBody = {
+        username,
+        password
+    }
 
     const requestOptions = {
         method: "POST",
@@ -61,13 +65,33 @@ async function processLogin() {
 
     try {
         // TODO: Send POST request to http://localhost:8081/login using fetch with requestOptions
+        const response = await fetch(`${BASE_URL}/login`, requestOptions);
 
         // TODO: If response status is 200
         // - Read the response as text
         // - Response will be a space-separated string: "token123 true"
         // - Split the string into token and isAdmin flag
         // - Store both in sessionStorage using sessionStorage.setItem()
+        if(response.ok) {
+            const data = await response.text();
 
+            const [token, isAdminFlag] = data.trim().split(/\s+/);
+            const isAdmin = (isAdminFlag === 'true');
+            sessionStorage.setItem(token, isAdmin);
+            
+            if(isAdmin) {
+                logoutButton.style.display = 'block';
+            }
+
+            setTimeout(() => {
+                window.location.href = 'recipe-page.html';
+            }, 500);
+
+        } else if(response.status === 401) {
+            alert('Incorrect login!');
+        } else {
+            alert('Unknown issue!');
+        }
         // TODO: Optionally show the logout button if applicable
 
         // TODO: Add a small delay (e.g., 500ms) using setTimeout before redirecting
@@ -80,8 +104,9 @@ async function processLogin() {
         // - Alert the user with a generic error like "Unknown issue!"
 
     } catch (error) {
+        console.log(error.message);
+        alert(`Error: ${error.message}`);
         // TODO: Handle any network or unexpected errors
         // - Log the error and alert the user
     }
 }
-
