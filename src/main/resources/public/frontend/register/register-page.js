@@ -8,7 +8,6 @@ const BASE_URL = "http://localhost:8081"; // backend URL
  * TODO: Get references to various DOM elements
  * - usernameInput, emailInput, passwordInput, repeatPasswordInput, registerButton
  */
-const registerForm= document.getElementById('register-form');
 const usernameInput = document.getElementById('username-input')
 const emailInput = document.getElementById('email-input')
 const passwordInput = document.getElementById('password-input')
@@ -18,7 +17,7 @@ const registerButton = document.getElementById('register-button');
 /* 
  * TODO: Ensure the register button calls processRegistration when clicked
  */
-registerForm.addEventListener('submit', processRegistration);
+registerButton.addEventListener('click', processRegistration);
 
 /**
  * TODO: Process Registration Function
@@ -45,17 +44,17 @@ registerForm.addEventListener('submit', processRegistration);
  */
 async function processRegistration() {
     // Implement registration logic here
-    const usernameVal = usernameInput.value;
-    const emailVal = emailInput.value;
-    const passwordVal = passwordInput.value;
-    const repeatPasswordVal = repeatPasswordInput.value;
+    const username = usernameInput.value;
+    const email = emailInput.value;
+    const password = passwordInput.value;
+    const repeatPassword = repeatPasswordInput.value;
 
-    if(usernameVal === '' || emailVal === '' || passwordVal === '' || repeatPasswordVal === '') {
+    if(username === '' || email === '' || password === '' || repeatPassword === '') {
         alert('All fields must be filled');
         return;
     }
 
-    if(passwordVal !== repeatPasswordVal) {
+    if(password !== repeatPassword) {
         alert('Password and Repeat Password do not match');
         return;
     }
@@ -63,9 +62,9 @@ async function processRegistration() {
     // Example placeholder:
     // const registerBody = { username, email, password };
     const registerBody = {
-        usernameVal, 
-        emailVal, 
-        passwordVal
+        username, 
+        email, 
+        password
     };
 
     const requestOptions = {
@@ -94,7 +93,6 @@ async function processRegistration() {
         } else {
             alert('Registration error');
         }
-
     } catch (error) {
         console.log(error.message);
         alert(`Error: ${error.message}`);
