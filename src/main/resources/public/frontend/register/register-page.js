@@ -87,7 +87,7 @@ async function processRegistration() {
         const response = await fetch(`${BASE_URL}/register`, requestOptions);
 
         if(response.ok) {
-            const result = await response.json();
+            //const result = await response.json();
         }
         else if(response.status === 201) {
             //window.location.replace(`${BASE_URL}/login`);
