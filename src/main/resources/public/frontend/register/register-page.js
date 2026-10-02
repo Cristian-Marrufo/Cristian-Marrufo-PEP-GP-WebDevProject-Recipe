@@ -8,10 +8,10 @@ const BASE_URL = "http://localhost:8081"; // backend URL
  * TODO: Get references to various DOM elements
  * - usernameInput, emailInput, passwordInput, repeatPasswordInput, registerButton
  */
-const usernameInput = document.getElementById('username-input')
-const emailInput = document.getElementById('email-input')
-const passwordInput = document.getElementById('password-input')
-const repeatPasswordInput = document.getElementById('repeat-password-input')
+const usernameInput = document.getElementById('username-input');
+const emailInput = document.getElementById('email-input');
+const passwordInput = document.getElementById('password-input');
+const repeatPasswordInput = document.getElementById('repeat-password-input');
 const registerButton = document.getElementById('register-button');
 
 /* 
@@ -80,7 +80,6 @@ async function processRegistration() {
         const response = await fetch(`${BASE_URL}/register`, requestOptions);
 
         if(response.status === 201) {
-            //const result = response.json();
             window.location.href = 'src/main/resources/public/frontend/login/login-page.html';
         } else if(response.status === 409) {
             alert('User/Email already exists');
