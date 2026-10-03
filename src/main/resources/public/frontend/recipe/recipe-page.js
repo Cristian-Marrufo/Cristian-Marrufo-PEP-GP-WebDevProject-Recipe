@@ -73,10 +73,7 @@ window.addEventListener("DOMContentLoaded", () => {
      */
     async function searchRecipes() {
         // Implement search logic here
-        const searchName = searchInput.ariaValueMax.toLowerCase();
-        const filteredRecipes = recipes.filter(recipe =>
-            recipe.name.toLowerCase().include(searchName)
-        )
+        const searchName = searchInput.value;
     }
 
     /**
@@ -130,7 +127,7 @@ window.addEventListener("DOMContentLoaded", () => {
      * - Create <li> elements for each recipe with name + instructions
      * - Append to list container
      */
-    function refreshRecipeList(recipeArray = recipes) {
+    function refreshRecipeList() {
         // Implement refresh logic here
     }
 
