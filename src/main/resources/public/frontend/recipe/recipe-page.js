@@ -73,7 +73,10 @@ window.addEventListener("DOMContentLoaded", () => {
      */
     async function searchRecipes() {
         // Implement search logic here
-        const searchName = searchInput.ariaValueMax.toLocaleLowerCase();
+        const searchName = searchInput.ariaValueMax.toLowerCase();
+        const filteredRecipes = recipes.filter(recipe =>
+            recipe.name.toLowerCase().include(searchName)
+        )
     }
 
     /**

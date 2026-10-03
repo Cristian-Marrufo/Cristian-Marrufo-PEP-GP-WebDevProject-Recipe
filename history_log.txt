@@ -1,7 +1,7 @@
-commit ebccd8b76665f868e37444c72ad14ad145f9725c
+commit 18b1df8ee00b56302747430c56ad8e409a7f6f97
 Author: Cristian-Marrufo <Cristian-Marrufo@github.com>
-Date:   Sat Oct 3 21:43:08 2026 +0000
+Date:   Sat Oct 3 23:07:01 2026 +0000
 
-    completed html file for recipe page
+    updated recipe js file
 
- 3 files changed, 25 insertions(+), 12 deletions(-)
+ 2 files changed, 34 insertions(+), 8 deletions(-)
