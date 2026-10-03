@@ -101,7 +101,7 @@ window.addEventListener("DOMContentLoaded", () => {
      * - Create <li> elements for each recipe with name + instructions
      * - Append to list container
      */
-    function refreshRecipeList() {
+    function refreshRecipeList(recipeArray = recipes) {
         // Implement refresh logic here
     }
 

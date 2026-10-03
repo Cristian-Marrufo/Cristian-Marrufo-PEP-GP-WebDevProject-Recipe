@@ -77,10 +77,12 @@ async function processLogin() {
 
             const [token, isAdminFlag] = data.trim().split(/\s+/);
             const isAdmin = (isAdminFlag === 'true');
-            sessionStorage.setItem(token, isAdmin);
             
-            if(isAdmin) {
-                logoutButton.style.display = 'block';
+            sessionStorage.setItem('auth-token', token);
+            sessionStorage.setItem('is-admin', isAdmin);
+            
+            if(sessionStorage.getItem('auth-token') !== null) {
+                logoutButton.hidden = false;
             }
 
             setTimeout(() => {
