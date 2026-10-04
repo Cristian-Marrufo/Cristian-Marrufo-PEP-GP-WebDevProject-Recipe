@@ -73,7 +73,12 @@ window.addEventListener("DOMContentLoaded", () => {
      */
     async function searchRecipes() {
         // Implement search logic here
-        const searchName = searchInput.value;
+        const searchTerm = searchInput.value;
+        const filteredSearch = recipes.filter(recipe => 
+            recipe.name.include(searchTerm)
+        );
+        
+        refreshRecipeList(filteredSearch);
     }
 
     /**
@@ -127,8 +132,16 @@ window.addEventListener("DOMContentLoaded", () => {
      * - Create <li> elements for each recipe with name + instructions
      * - Append to list container
      */
-    function refreshRecipeList() {
+    function refreshRecipeList(recipeArray) {
         // Implement refresh logic here
+        recipeList.innerHTML = "";
+
+        for(const recipe of recipeArray) {
+            const listItem = document.createElement('li');
+
+            listItem.textContent = `${recipe.name}: ${recipe.instructions}`;
+            recipeList.appendChild(listItem);
+        }
     }
 
     /**
