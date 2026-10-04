@@ -282,11 +282,14 @@ window.addEventListener("DOMContentLoaded", () => {
                 throw new Error('Failed to logout');
             }
 
-            
+            sessionStorage.removeItem("auth-token");
+            sessionStorage.removeItem("is-admin");
+
+            window.location.href = '../login/login-page.html';
 
         } catch (error) {
-
+            console.log(error.message);
+            alert(`Error: ${error.message}`);
         }
     }
-
 });
