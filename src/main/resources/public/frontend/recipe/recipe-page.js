@@ -145,6 +145,12 @@ window.addEventListener("DOMContentLoaded", () => {
         }
 
         recipe.instructions = updateRecipeInstVal;
+        const requestOptions = {
+            method: "PUT",
+            headers: {
+                ""
+            }
+        }
 
     }
 
