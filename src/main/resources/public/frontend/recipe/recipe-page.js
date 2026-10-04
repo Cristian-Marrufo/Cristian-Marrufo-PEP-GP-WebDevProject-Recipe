@@ -133,7 +133,19 @@ window.addEventListener("DOMContentLoaded", () => {
      */
     async function updateRecipe() {
         // Implement update logic here
-        
+        const updateRecipeInputVal = updateRecipeInput.value;
+        const updateRecipeInstVal = updateRecipeInst.value;
+        const recipe = recipes.find(recipe => 
+            recipe.name === updateRecipeInputVal
+        );
+
+        if(recipe === undefined) {
+            alert('Recipe not found');
+            return;
+        }
+
+        recipe.instructions = updateRecipeInstVal;
+
     }
 
     /**
