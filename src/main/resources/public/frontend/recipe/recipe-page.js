@@ -268,8 +268,25 @@ window.addEventListener("DOMContentLoaded", () => {
      */
     async function processLogout() {
         // Implement logout logic here
-        
+        const requestOptions = {
+            method: "POST",
+            headers: {
+                "Authorization": "Bearer " + sessionStorage.getItem("auth-token") 
+            }
+        };
 
+        try {
+            const response = await fetch(`${BASE_URL}/logout`, requestOptions);
+
+            if(!response.ok) {
+                throw new Error('Failed to logout');
+            }
+
+            
+
+        } catch (error) {
+
+        }
     }
 
 });
