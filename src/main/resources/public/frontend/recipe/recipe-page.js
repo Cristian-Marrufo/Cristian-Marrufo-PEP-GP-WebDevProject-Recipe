@@ -136,7 +136,7 @@ window.addEventListener("DOMContentLoaded", () => {
         const updateRecipeInputVal = updateRecipeInput.value;
         const updateRecipeInstVal = updateRecipeInst.value;
         const recipe = recipes.find(recipe => 
-            recipe.name === updateRecipeInputVal
+            recipe.name.toLowerCase() === updateRecipeInputVal.toLowerCase()
         );
 
         if(recipe === undefined) {
@@ -180,7 +180,7 @@ window.addEventListener("DOMContentLoaded", () => {
         // Implement delete logic here
         const deleteRecipeInputVal = deleteRecipeInput.value;
         const recipe = recipes.find(recipe =>
-            recipe.name === deleteRecipeInputVal
+            recipe.name.toLowerCase() === deleteRecipeInputVal.toLowerCase()
         );
 
         if(recipe === undefined) {
