@@ -75,11 +75,11 @@ window.addEventListener("DOMContentLoaded", () => {
     async function searchRecipes() {
         // Implement search logic here
         const searchTerm = searchInput.value;
-        recipes = recipes.filter(recipe => 
-            recipe.name === searchTerm
+        const filteredRecipes = recipes.filter(recipe => 
+            recipe.name.includes(searchTerm)
         );
         
-        refreshRecipeList();
+        refreshRecipeList(filteredRecipes);
     }
 
     /**
@@ -247,11 +247,11 @@ window.addEventListener("DOMContentLoaded", () => {
      * - Create <li> elements for each recipe with name + instructions
      * - Append to list container
      */
-    function refreshRecipeList() {
+    function refreshRecipeList(recipeArray = recipes) {
         // Implement refresh logic here
         recipeList.innerHTML = "";
 
-        for(const recipe of recipes) {
+        for(const recipe of recipeArray) {
             const listItem = document.createElement('li');
 
             listItem.textContent = `${recipe.name}: ${recipe.instructions}`;
