@@ -76,7 +76,7 @@ window.addEventListener("DOMContentLoaded", () => {
         // Implement search logic here
         const searchTerm = searchInput.value;
         recipes = recipes.filter(recipe => 
-            recipe.name.include(searchTerm)
+            recipe.name === searchTerm
         );
         
         refreshRecipeList();
