@@ -148,10 +148,25 @@ window.addEventListener("DOMContentLoaded", () => {
         const requestOptions = {
             method: "PUT",
             headers: {
-                ""
-            }
-        }
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + sessionStorage.getItem("auth-token")
+            },
+            body: JSON.stringify(recipe)
+        };
 
+        try {
+            const response = await fetch(`${BASE_URL}/recipes/${recipe.id}`, requestOptions);
+
+            if(!response.ok) {
+                throw new Error('Failed to update recipe');
+            }
+
+            await getRecipes();
+
+        } catch (error) {
+            console.log(error.message);
+            alert(`Error: ${error.message}`);
+        }
     }
 
     /**
