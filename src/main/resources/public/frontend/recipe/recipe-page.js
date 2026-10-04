@@ -178,7 +178,36 @@ window.addEventListener("DOMContentLoaded", () => {
      */
     async function deleteRecipe() {
         // Implement delete logic here
+        const deleteRecipeInputVal = deleteRecipeInput.value;
+        const recipe = recipes.find(recipe =>
+            recipe.name === deleteRecipeInputVal
+        );
 
+        if(recipe === undefined) {
+            alert('Recipe not found');
+            return;
+        }
+
+        const requestOptions = {
+            method: "DELETE",
+            headers: {
+                "Authorization": "Bearer " + sessionStorage.getItem("auth-token")
+            }
+        };
+
+        try {
+            const response = await fetch(`${BASE_URL}/recipes/${recipe.id}`, requestOptions);
+
+            if(!response.ok) {
+                throw new Error('Failed to delete recipe');
+            }
+
+            await getRecipes();
+
+        } catch (error) {
+            console.log(error.message);
+            alert(`Error: ${error.message}`);
+        }
     }
 
     /**
