@@ -133,6 +133,7 @@ window.addEventListener("DOMContentLoaded", () => {
      */
     async function updateRecipe() {
         // Implement update logic here
+        
     }
 
     /**
@@ -144,6 +145,7 @@ window.addEventListener("DOMContentLoaded", () => {
      */
     async function deleteRecipe() {
         // Implement delete logic here
+
     }
 
     /**
@@ -204,6 +206,7 @@ window.addEventListener("DOMContentLoaded", () => {
      */
     async function processLogout() {
         // Implement logout logic here
+
     }
 
 });
