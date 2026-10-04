@@ -92,6 +92,27 @@ window.addEventListener("DOMContentLoaded", () => {
      */
     async function addRecipe() {
         // Implement add logic here
+        const addRecipeInputVal = addRecipeInput.value;
+        const addRecipeInstVal = addRecipeInst.value;
+
+        const recipeBody = {
+            name: addRecipeInputVal,
+            instructions: addRecipeInstVal
+        };
+        const requestOptions = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + sessionStorage.getItem("auth-token")
+            },
+            body: JSON.stringify(recipeBody)
+        };
+
+        try {
+
+        } catch (error) {
+
+        }
     }
 
     /**
@@ -128,7 +149,7 @@ window.addEventListener("DOMContentLoaded", () => {
         const requestOptions = {
             method: "GET",
             headers: {
-                "Authorization": "Beared " + sessionStorage.getItem("auth-token")
+                "Authorization": "Bearer " + sessionStorage.getItem("auth-token")
             }
         };
 
