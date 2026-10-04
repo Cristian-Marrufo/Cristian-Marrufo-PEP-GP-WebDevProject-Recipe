@@ -109,9 +109,17 @@ window.addEventListener("DOMContentLoaded", () => {
         };
 
         try {
+            const response = await fetch(`${BASE_URL}/recipes`, requestOptions);
+
+            if(!response.ok) {
+                throw new Error('Failed to add recipe');
+            }
+
+            await getRecipes();
 
         } catch (error) {
-
+            console.log(error.message);
+            alert(`Error: ${error.message}`);
         }
     }
 
