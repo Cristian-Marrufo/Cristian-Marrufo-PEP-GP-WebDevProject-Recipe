@@ -75,10 +75,16 @@ window.addEventListener("DOMContentLoaded", () => {
     async function searchRecipes() {
         // Implement search logic here
         const searchTerm = searchInput.value;
+
+        console.log("SEARCH:", searchTerm);
+        console.log("BEFORE FILTER:", recipes);
+
         const filteredRecipes = recipes.filter(recipe => 
             recipe.name.toLowerCase().includes(searchTerm.tolowerCase())
         );
-        
+
+        console.log("AFTER FILTER:", filteredRecipes);
+
         refreshRecipeList(filteredRecipes);
     }
 
@@ -144,14 +150,18 @@ window.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        recipe.instructions = updateRecipeInstVal;
+        const updatedRecipe = {
+            ...recipe,
+            instructions: updateRecipeInstVal
+        };
+
         const requestOptions = {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": "Bearer " + sessionStorage.getItem("auth-token")
             },
-            body: JSON.stringify(recipe)
+            body: JSON.stringify(updatedRecipe)
         };
 
         try {
