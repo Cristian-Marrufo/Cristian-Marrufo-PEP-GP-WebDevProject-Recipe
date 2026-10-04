@@ -76,7 +76,7 @@ window.addEventListener("DOMContentLoaded", () => {
         // Implement search logic here
         const searchTerm = searchInput.value;
         const filteredRecipes = recipes.filter(recipe => 
-            recipe.name.toLowerCase().includes(searchTerm.tolowerCase())
+            recipe.name.toLowerCase().includes(searchTerm.trim().toLowerCase())
         );
 
         refreshRecipeList(filteredRecipes);
