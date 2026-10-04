@@ -34,6 +34,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const searchInput = document.getElementById('search-input');
     const searchButton = document.getElementById('search-button');
+
     /*
      * TODO: Show logout button if auth-token exists in sessionStorage
      */
@@ -74,11 +75,11 @@ window.addEventListener("DOMContentLoaded", () => {
     async function searchRecipes() {
         // Implement search logic here
         const searchTerm = searchInput.value;
-        const filteredSearch = recipes.filter(recipe => 
+        recipes = recipes.filter(recipe => 
             recipe.name.include(searchTerm)
         );
         
-        refreshRecipeList(filteredSearch);
+        refreshRecipeList();
     }
 
     /**
@@ -132,11 +133,11 @@ window.addEventListener("DOMContentLoaded", () => {
      * - Create <li> elements for each recipe with name + instructions
      * - Append to list container
      */
-    function refreshRecipeList(recipeArray) {
+    function refreshRecipeList() {
         // Implement refresh logic here
         recipeList.innerHTML = "";
 
-        for(const recipe of recipeArray) {
+        for(const recipe of recipes) {
             const listItem = document.createElement('li');
 
             listItem.textContent = `${recipe.name}: ${recipe.instructions}`;
