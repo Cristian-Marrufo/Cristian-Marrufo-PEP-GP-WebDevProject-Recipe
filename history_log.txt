@@ -1,7 +1,7 @@
-commit 90f8eb2d4801e5cca33468dfeea057a66571be0f
+commit cbe09d78a0a5cccbbf5afd9a987794425f293793
 Author: Cristian-Marrufo <Cristian-Marrufo@github.com>
-Date:   Sun Oct 4 20:29:35 2026 +0000
+Date:   Sun Oct 4 20:32:11 2026 +0000
 
-    Test run: 86/102 passed, 16 failed, 0 skipped - 2026-10-04T20:29:35.093Z
+    implemented the logut function in recipe page
 
- 2 files changed, 22 insertions(+), 5 deletions(-)
+ 2 files changed, 10 insertions(+), 7 deletions(-)
