@@ -75,15 +75,9 @@ window.addEventListener("DOMContentLoaded", () => {
     async function searchRecipes() {
         // Implement search logic here
         const searchTerm = searchInput.value;
-
-        console.log("SEARCH:", searchTerm);
-        console.log("BEFORE FILTER:", recipes);
-
         const filteredRecipes = recipes.filter(recipe => 
             recipe.name.toLowerCase().includes(searchTerm.tolowerCase())
         );
-
-        console.log("AFTER FILTER:", filteredRecipes);
 
         refreshRecipeList(filteredRecipes);
     }
