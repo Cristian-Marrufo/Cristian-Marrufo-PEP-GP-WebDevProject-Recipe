@@ -1,7 +1,7 @@
-commit bbe09b8f228b222c40b1d53cfed7423de8704449
+commit b84d04fac0af8ef3d458c30a26325b81049031d2
 Author: Cristian-Marrufo <Cristian-Marrufo@github.com>
-Date:   Sun Oct 4 23:34:35 2026 +0000
+Date:   Mon Oct 5 00:07:34 2026 +0000
 
-    Test run: 123/127 passed, 4 failed, 0 skipped - 2026-10-04T23:34:34.948Z
+    implemented getingredient and refreshingredients methods
 
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ 3 files changed, 43 insertions(+), 7 deletions(-)

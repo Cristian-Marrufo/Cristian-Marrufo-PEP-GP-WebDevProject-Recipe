@@ -48,6 +48,39 @@ window.addEventListener("DOMContentLoaded", getIngredients);
  */
 async function addIngredient() {
     // Implement add ingredient logic here
+    const ingredientName = addIngredientNameInput.value.trim();
+    
+    if(ingredientName === '') {
+        alert('Add ingredient name');
+        return;
+    }
+
+    const ingredientBody = {
+        name: ingredientName
+    };
+    const requestOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + sessionStorage.getItem("auth-token")
+        },
+        body: JSON.stringify(ingredientBody)
+    };
+
+    try {
+        const response = await fetch(`${BASE_URL}/ingredients`, requestOptions);
+
+        if(!response.ok) {
+            throw new Error('Failed to add ingredient');
+        }
+
+        await getIngredients();
+        addIngredientNameInput.value = "";
+
+    } catch (error) {
+        console.log(error.message);
+        alert(`Error: ${error.message}`);
+    }
 }
 
 
