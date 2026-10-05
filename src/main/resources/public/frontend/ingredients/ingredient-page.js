@@ -132,6 +132,46 @@ async function getIngredients() {
  */
 async function deleteIngredient() {
     // Implement delete ingredient logic here
+    const ingredientName = deleteIngredientNameInput.value.trim();
+    const ingredient = undefined;
+
+    for(const listItem of ingredientListContainer.children) {
+
+        if(listItem.textContent.includes(ingredientName)) {
+            ingredient = ingredients.find(ingredient =>
+                ingredient.name.toLowerCase() === ingredientName.toLowerCase()
+            )
+
+            break;
+        }
+    }
+
+    if(ingredient === undefined) {
+        alert('Ingredient not found');
+        return;
+    }
+
+    const requestOptions = {
+        method: "DELETE",
+        headers: {
+            "Authorization": "Bearer " + sessionStorage.getItem("auth-token")
+        }
+    };
+
+    try {
+        const response = await fetch(`${BASE_URL}/ingredients/${ingredient.id}`, requestOptions);
+
+        if(!response.ok) {
+            throw new Error('Failed to delete ingredient');
+        }
+
+        await getIngredients();
+        deleteIngredientNameInput.value = "";
+        
+    } catch (error) {
+        console.log(error.message);
+        alert(`Error: ${error.message}`);
+    }
 }
 
 
