@@ -1,7 +1,7 @@
-commit b84d04fac0af8ef3d458c30a26325b81049031d2
+commit d0d6c980337863cfd973af48cc91885a19ed166c
 Author: Cristian-Marrufo <Cristian-Marrufo@github.com>
-Date:   Mon Oct 5 00:07:34 2026 +0000
+Date:   Mon Oct 5 00:26:20 2026 +0000
 
-    implemented getingredient and refreshingredients methods
+    implemented the add ingreient logic
 
- 3 files changed, 43 insertions(+), 7 deletions(-)
+ 2 files changed, 37 insertions(+), 4 deletions(-)
