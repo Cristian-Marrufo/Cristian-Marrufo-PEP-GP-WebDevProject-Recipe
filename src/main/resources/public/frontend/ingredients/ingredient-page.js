@@ -83,7 +83,6 @@ async function addIngredient() {
     }
 }
 
-
 /**
  * TODO: Get Ingredients Function
  * 
@@ -117,7 +116,6 @@ async function getIngredients() {
         alert(`Error: ${error.message}`);
     }
 }
-
 
 /**
  * TODO: Delete Ingredient Function
@@ -164,7 +162,6 @@ async function deleteIngredient() {
         alert(`Error: ${error.message}`);
     }
 }
-
 
 /**
  * TODO: Refresh Ingredient List Function
