@@ -12,21 +12,28 @@ const BASE_URL = "http://localhost:8081"; // backend URL
  * - searchInput (optional for future use)
  * - adminLink (if visible conditionally)
  */
+const addIngredientNameInput = document.getElementById('add-ingredient-name-input');
+const addIngredientSubmit = document.getElementById('add-ingredient-submit-button');
 
+const deleteIngredientNameInput = document.getElementById('delete-ingredient-name-input');
+const deleteIngredientSubmit = document.getElementById('delte-ingredient-submit-button');
+
+const ingredientListContainer = document.getElementById('ingredient-list');
 /* 
  * TODO: Attach 'onclick' events to:
  * - "add-ingredient-submit-button" → addIngredient()
  * - "delete-ingredient-submit-button" → deleteIngredient()
  */
-
+addIngredientSubmit.addEventListener('click', addIngredient);
+deleteIngredientSubmit.addEventListener('click', deleteIngredient);
 /*
  * TODO: Create an array to keep track of ingredients
  */
-
+let ingredients = [];
 /* 
  * TODO: On page load, call getIngredients()
  */
-
+window.addEventListener("DOMContentLoaded", getIngredients);
 
 /**
  * TODO: Add Ingredient Function
@@ -55,6 +62,27 @@ async function addIngredient() {
  */
 async function getIngredients() {
     // Implement get ingredients logic here
+    const requestOptions = {
+        method: "GET",
+        headers: {
+            "Authorization": "Bearer " + sessionStorage.getItem("auth-token")
+        }
+    };
+
+    try {
+        const response = await fetch(`${BASE_URL}/ingredients`, requestOptions);
+
+        if(!response.ok) {
+            throw new Error('Failed to get ingredients');
+        }
+        
+        ingredients = await response.json();
+        refreshIngredientList();
+
+    } catch (error) {
+        console.log(error.message);
+        alert(`Error: ${error.message}`);
+    }
 }
 
 
@@ -86,4 +114,12 @@ async function deleteIngredient() {
  */
 function refreshIngredientList() {
     // Implement ingredient list rendering logic here
+    ingredientListContainer.innerHTML = "";
+
+    for(const ingredient of ingredients) {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `<p>${ingredient.name}</p>`;
+
+        ingredientListContainer.appendChild(listItem);
+    }
 }

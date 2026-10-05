@@ -257,8 +257,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
         for(const recipe of recipeArray) {
             const listItem = document.createElement('li');
-
             listItem.textContent = `${recipe.name}: ${recipe.instructions}`;
+            
             recipeList.appendChild(listItem);
         }
     }
