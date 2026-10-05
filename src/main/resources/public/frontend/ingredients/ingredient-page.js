@@ -16,7 +16,7 @@ const addIngredientNameInput = document.getElementById('add-ingredient-name-inpu
 const addIngredientSubmit = document.getElementById('add-ingredient-submit-button');
 
 const deleteIngredientNameInput = document.getElementById('delete-ingredient-name-input');
-const deleteIngredientSubmit = document.getElementById('delte-ingredient-submit-button');
+const deleteIngredientSubmit = document.getElementById('delete-ingredient-submit-button');
 
 const ingredientListContainer = document.getElementById('ingredient-list');
 /* 

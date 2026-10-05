@@ -1,7 +1,7 @@
-commit b7fce205c0c38b2aa857092840c585bee5ba3b66
+commit fd284186c26ec751a1f7aa9ad64d05c80903a0d0
 Author: Cristian-Marrufo <Cristian-Marrufo@github.com>
-Date:   Mon Oct 5 00:29:14 2026 +0000
+Date:   Mon Oct 5 00:56:57 2026 +0000
 
-    Test run: 123/127 passed, 4 failed, 0 skipped - 2026-10-05T00:29:14.008Z
+    implemented the delte ingredient logic
 
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ 2 files changed, 43 insertions(+), 3 deletions(-)
