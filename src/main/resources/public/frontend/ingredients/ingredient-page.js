@@ -133,18 +133,9 @@ async function getIngredients() {
 async function deleteIngredient() {
     // Implement delete ingredient logic here
     const ingredientName = deleteIngredientNameInput.value.trim();
-    const ingredient = undefined;
-
-    for(const listItem of ingredientListContainer.children) {
-
-        if(listItem.textContent.includes(ingredientName)) {
-            ingredient = ingredients.find(ingredient =>
-                ingredient.name.toLowerCase() === ingredientName.toLowerCase()
-            )
-
-            break;
-        }
-    }
+    const ingredient = ingredients.find(ingredient =>
+        ingredient.name.toLowerCase() === ingredientName.toLowerCase()
+    )
 
     if(ingredient === undefined) {
         alert('Ingredient not found');
